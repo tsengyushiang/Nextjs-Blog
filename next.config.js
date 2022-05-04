@@ -6,6 +6,7 @@ let nextConfig = {
     TIME: new Date(),
   },
 }
+
 if (process.env.NODE_ENV == 'production') {
   const githubPagesConfig = (github_repo_name) => {
     return {
@@ -19,7 +20,7 @@ if (process.env.NODE_ENV == 'production') {
   }
   nextConfig = {
     ...nextConfig,
-    ...githubPagesConfig("Nextjs-Blog")
+    ...githubPagesConfig(`${process.env.NEXT_PUBLIC_REPO}`.split('/')[1])
   }
 }
 module.exports = nextConfig
