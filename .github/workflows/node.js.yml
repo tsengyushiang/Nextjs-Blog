@@ -22,10 +22,11 @@ jobs:
     - uses: actions/checkout@v3
       with:
           token: ${{ secrets.PAT }}
+    - run: |
+          echo "REPO_NAME=${{ github.repository }}" > .env
     - run: npm install
     - run: npm run build
     - run: |
-          echo "REPO_NAME=${{ github.repository }}" > .env
           git config --global user.email "you@example.com"
           git config --global user.name "Your Name"
           git add out/ -f
