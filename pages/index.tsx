@@ -61,7 +61,7 @@ const Home: NextPage = () => {
         >
           Powered by{' '}
           <br />
-          Latest upadte: {process.env.TIME}
+          Merge DEV: {process.env.TIME}
           
           <span className={styles.logo}>
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
