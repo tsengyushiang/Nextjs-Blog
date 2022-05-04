@@ -38,13 +38,13 @@ describe('Test index.ts', () => {
 
 describe('Testcase from https://www.casper.tw/development/2020/02/02/jest-intro/', () => {
 
-    test('測試 fn 是否為 小明', () => {
-        expect({
-            name: '小明'
-        }).toBe({
-            name: '小明'
-        });
-    });
+    // test('測試 fn 是否為 小明', () => {
+    //     expect({
+    //         name: '小明'
+    //     }).toBe({
+    //         name: '小明'
+    //     });
+    // });
 
     test('測試 fn 是否為 小明', () => {
         expect({
