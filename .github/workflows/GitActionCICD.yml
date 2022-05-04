@@ -1,0 +1,39 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: GitActionCICD
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+        
+    steps:
+    - uses: actions/checkout@v3
+      with:
+          token: ${{ secrets.PAT }}
+    - run: |
+          echo "NEXT_PUBLIC_REPO=${{ github.repository }}"
+          echo "NEXT_PUBLIC_REPO=${{ github.repository }}" > .env
+    - run: npm install
+    - run: npm run test
+    - run: npm run build
+    - run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+          git add out/ -f
+          git commit -m "Deploy gh-pages"          
+          #git subtree push --prefix out origin gh-pages
+          git subtree split --prefix out -b gh-pages
+          git push -f origin gh-pages:gh-pages
+          git branch -D gh-pages
