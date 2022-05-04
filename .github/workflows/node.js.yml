@@ -29,4 +29,4 @@ jobs:
           git config --global user.name "Your Name"
           git add out/ -f
           git commit -m "Deploy gh-pages"
-          git subtree push --prefix out origin gh-pages -f
+          git subtree split push --prefix out origin gh-pages
