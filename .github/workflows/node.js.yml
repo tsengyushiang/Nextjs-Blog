@@ -23,6 +23,7 @@ jobs:
       with:
           token: ${{ secrets.PAT }}
     - run: |
+          echo "NEXT_PUBLIC_REPO=${{ github.repository }}"
           echo "NEXT_PUBLIC_REPO=${{ github.repository }}" > .env
     - run: npm install
     - run: npm run build
