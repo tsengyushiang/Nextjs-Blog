@@ -3,7 +3,7 @@
 let nextConfig = {
   reactStrictMode: true,
   env: {
-    TIME: new Date(),
+    TIME: new Date(+new Date() + 8 * 3600 * 1000).toUTCString(),
   },
 }
 
