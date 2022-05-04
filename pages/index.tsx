@@ -14,7 +14,7 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Yushiang-Blog <a href="https://nextjs.org">Next.js!</a>
+        {process.env.NEXT_PUBLIC_REPO} <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
         <p className={styles.description}>
@@ -59,11 +59,7 @@ const Home: NextPage = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <br />
-          Merge DEV: {process.env.TIME}
-          Reponame: {process.env.REPO_NAME}
-
+          Powered by
           <span className={styles.logo}>
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
