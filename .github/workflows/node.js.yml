@@ -27,6 +27,7 @@ jobs:
     - run: |
           git config --global user.email "you@example.com"
           git config --global user.name "Your Name"
-          git add out/
+          git add out/ -f
           git commit -m "Deploy gh-pages"
+          git subtree pull --prefix out origin gh-pages
           git subtree push --prefix out origin gh-pages
